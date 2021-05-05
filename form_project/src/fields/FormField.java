@@ -18,10 +18,14 @@ public abstract class FormField extends JPanel{
 	protected Dimension minSize = new Dimension(DEFAULT_MIN_WIDTH, DEFAULT_MIN_HEIGHT);
 	protected Integer spanY = 1;
 	
+	public FormField() {
+		
+	}
+	
 	public FormField(String fieldName) {
 		label = new JLabel(fieldName + ": ");
 	}
-	
+
 	protected void addLayout(JComponent formField) {
 		GridBagConstraints gc = new GridBagConstraints();
 		GridBagLayout grid = new GridBagLayout();

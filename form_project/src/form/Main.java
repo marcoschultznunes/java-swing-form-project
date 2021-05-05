@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import fields.ComboBoxField;
 import fields.FormField;
 import fields.InputField;
+import fields.RadioField;
 
 public class Main {
 
@@ -31,8 +32,11 @@ public class Main {
 			"Male", "Female", "Other"
 		));
 		
+		RadioField roleField = new RadioField("Role", Arrays.asList("User", "Admin", "Other"));
+		
 		List<FormField> fields = Arrays.asList(
-			nameField, surnameField, emailField, passwordField, rgField, occupationField, genderField
+			nameField, surnameField, emailField, passwordField, rgField, occupationField, genderField, 
+			roleField
 		);
 		
 		FormPanel form = new FormPanel(fields, 5);
