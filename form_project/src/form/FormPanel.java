@@ -1,4 +1,4 @@
-package ex01_form_example;
+package form;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -9,21 +9,23 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import fields.FormField;
+
 public class FormPanel extends JPanel{
 	private static final long serialVersionUID = 4410373794361096540L;
 	
-	private ArrayList<InputField> fields = new ArrayList<InputField>();
-	private JButton submitButton = new JButton("Submit");
+	private ArrayList<FormField> fields = new ArrayList<FormField>();
+	private JButton submitButton = new SubmitButton("Submit", this);
 	private Integer rows = 1;
 	private Integer columns = 1;
 	
-	public FormPanel(List<InputField> fields, Integer maxY) {
+	public FormPanel(List<FormField> fields, Integer maxY) {
 		setBorder(BorderFactory.createCompoundBorder(
 			BorderFactory.createEmptyBorder(20, 80, 20, 80),
 			BorderFactory.createTitledBorder("Signup")
 		));
 		
-		for(InputField field: fields) {
+		for(FormField field: fields) {
 			this.fields.add(field);
 		}
 		
@@ -32,6 +34,7 @@ public class FormPanel extends JPanel{
 		setLayout(grid);
 		
 		gc.fill = GridBagConstraints.BOTH;
+		gc.anchor = GridBagConstraints.CENTER;
 		gc.weightx = 1;
 		gc.weighty = 1;
 		
@@ -56,5 +59,11 @@ public class FormPanel extends JPanel{
 		gc.gridy = this.rows;
 		gc.gridwidth = this.columns;
 		add(submitButton, gc);
+	}
+	
+	public void submitForm() {
+		for(FormField field: fields) {
+			System.out.println(field.getValue());
+		}
 	}
 }

@@ -1,4 +1,4 @@
-package ex01_form_example;
+package form;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,6 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+
+import fields.ComboBoxField;
+import fields.FormField;
+import fields.InputField;
 
 public class Main {
 
@@ -23,8 +27,12 @@ public class Main {
 		InputField rgField = new InputField("RG", new JTextField());
 		InputField occupationField = new InputField("Occupation", new JTextField());
 		
-		List<InputField> fields = Arrays.asList(
-			nameField, surnameField, emailField, passwordField, rgField, occupationField
+		ComboBoxField genderField = new ComboBoxField("Gender", Arrays.asList(
+			"Male", "Female", "Other"
+		));
+		
+		List<FormField> fields = Arrays.asList(
+			nameField, surnameField, emailField, passwordField, rgField, occupationField, genderField
 		);
 		
 		FormPanel form = new FormPanel(fields, 5);
