@@ -42,9 +42,20 @@ public class FormPanel extends JPanel{
 		gc.gridy = 0;
 		
 		for(int i = 0; i < fields.size(); i++) {
-			add(fields.get(i), gc);
-			gc.gridy++;
+			// Span Y => 2
+			if(fields.get(i).getSpanY() == 2) {
+				gc.gridheight = 2;
+				add(fields.get(i), gc);
+				gc.gridy += 2;
+			}
+			else {
+				add(fields.get(i), gc);
+				gc.gridy++;
+			}
 			
+			gc.gridheight = 1;
+			
+			// New Column
 			if(gc.gridy >= maxY) {
 				gc.gridx++;
 				gc.gridy = 0;

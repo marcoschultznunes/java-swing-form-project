@@ -7,10 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 
 import fields.ComboBoxField;
 import fields.FormField;
 import fields.InputField;
+import fields.ListField;
 import fields.RadioField;
 
 public class Main {
@@ -34,9 +36,15 @@ public class Main {
 		
 		RadioField roleField = new RadioField("Role", Arrays.asList("User", "Admin", "Other"));
 		
+		ListField hierarchyField = new ListField("Occupation", 
+			Arrays.asList(
+				"Trainee", "Staff", "Employee", "Manager", "CEO", "Director", "VP", "President"
+			), ListSelectionModel.SINGLE_SELECTION
+		);
+		
 		List<FormField> fields = Arrays.asList(
 			nameField, surnameField, emailField, passwordField, rgField, occupationField, genderField, 
-			roleField
+			roleField, hierarchyField
 		);
 		
 		FormPanel form = new FormPanel(fields, 5);

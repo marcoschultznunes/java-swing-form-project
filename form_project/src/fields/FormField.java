@@ -41,4 +41,8 @@ public abstract class FormField extends JPanel{
 	}
 	
 	public abstract String getValue();
+	
+	public int getSpanY() {
+		return this.spanY;
+	}
 }
